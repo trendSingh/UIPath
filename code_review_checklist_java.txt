@@ -1,0 +1,42 @@
+# Code Review Checklist for Java Files
+
+## Code Style
+- [ ] Are the naming conventions for classes, methods, and variables followed?
+- [ ] Is the code properly indented and formatted?
+- [ ] Are there any comments for complex code sections?
+- [ ] Are there unnecessary or commented-out code blocks?
+
+## Functionality
+- [ ] Does the code perform the intended functionality?
+- [ ] Are all edge cases and possible errors handled?
+- [ ] Is there any duplicated code that can be refactored?
+- [ ] Are all functions/methods documented?
+
+## Performance
+- [ ] Are there any performance bottlenecks?
+- [ ] Are loops and iterations optimized?
+- [ ] Is the code making efficient use of memory and resources?
+
+## Security
+- [ ] Are there any security vulnerabilities?
+- [ ] Is user input properly validated and sanitized?
+- [ ] Are there proper access controls and permissions?
+
+## Testing
+- [ ] Are there unit tests for every function/method?
+- [ ] Are there integration tests?
+- [ ] Are the tests comprehensive and cover all edge cases?
+- [ ] Do the tests pass?
+
+## Documentation
+- [ ] Is there a README file explaining code setup and usage?
+- [ ] Is the code well-documented?
+- [ ] Are there comments explaining complex logic?
+
+## Other
+- [ ] Does the code follow best practices?
+- [ ] Are there any third-party libraries used? If yes, are they up-to-date?
+- [ ] Is the code modular and reusable?
+- [ ] Are there any known issues or TODOs in the code?
+
+Make sure to review the code based on the above checklist and provide feedback or necessary changes as comments.
