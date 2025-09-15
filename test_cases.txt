@@ -1,0 +1,21 @@
+# Test Cases for User Story
+
+## Test Case 1: Navigate to Profile Page
+**Given** the user is on the dashboard,
+**When** the user clicks on the 'Profile' link,
+**Then** the user should be navigated to the profile page.
+
+## Test Case 2: View Personal Information
+**Given** the user is on the profile page,
+**When** the page is loaded,
+**Then** the user should see their personal information displayed.
+
+## Test Case 3: Edit Personal Information
+**Given** the user is on the profile page,
+**When** the user modifies their personal information and clicks 'Save',
+**Then** the changes should be saved.
+
+## Test Case 4: Confirmation Message
+**Given** the user has successfully saved changes to their personal information,
+**When** the save is successful,
+**Then** the user should receive a confirmation message indicating success.
