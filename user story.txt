@@ -1,0 +1,1 @@
+As a registered user, I want to be able to add multiple items to my shopping cart from different product pages so that I can complete a single purchase for all selected items.
