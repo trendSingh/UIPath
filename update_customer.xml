@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+          http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+          http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+          http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule-core.xsd">
+
+    <flow name="updateCustomerFlow">
+        <!-- HTTP Listener to receive requests to update customer -->
+        <http:listener config-ref="HTTP_Listener_config" path="/updateCustomer" doc:name="HTTP Listener"/>
+        
+        <!-- Transform incoming request to match Salesforce update operation -->
+        <set-payload value="#[{
+            Id: payload.Id,
+            FirstName: payload.FirstName,
+            LastName: payload.LastName,
+            Email: payload.Email
+        }]" doc:name="Transform Payload"/>
+        
+        <!-- Salesforce Update operation to update the customer object -->
+        <sfdc:update config-ref="Salesforce_Config" type="Contact" doc:name="Update Customer">
+            <sfdc:objects>
+                <sfdc:object class="java.util.HashMap">
+                    <sfdc:fields-payload/>
+                </sfdc:object>
+            </sfdc:objects>
+        </sfdc:update>
+
+        <!-- Set response to indicate success -->
+        <set-payload value="#[{'status': 'Customer updated successfully'}]" doc:name="Set Success Response"/>
+    </flow>
+
+    <!-- Configuration for HTTP Listener -->
+    <http:listener-config name="HTTP_Listener_config" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    
+    <!-- Configuration for Salesforce Connector -->
+    <sfdc:config name="Salesforce_Config" username="your_salesforce_username" password="your_salesforce_password" securityToken="your_salesforce_security_token" doc:name="Salesforce Configuration"/>
+</mule>
